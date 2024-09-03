@@ -1,0 +1,167 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #36384D;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+ 
+}
+
+/* Container Styles */
+.container {
+  background-color: white;
+  border-radius: 20px;
+  display: flex;
+  max-width: 1200px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Left Column Styles */
+.grid-column1 {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content:flex-start;
+  width: 60%;
+}
+
+.row1 h1 {
+  font-size: 52px;
+  color: #242742;
+  margin-bottom: 10px;
+  margin-top: 40px;
+}
+
+.row2 {
+  font-size: 16px;
+  font-weight: 500;
+  color: #242742;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  width: 400px;
+  
+}
+
+.row3 {
+  margin-top: 15px;
+  margin-bottom: 10px;
+  line-height: 1.8em;
+  margin-left: 25px;
+}
+
+li{
+	list-style-image: url('data:image/svg+xml,<svg transform="scale(0.7) translate(0, 10)" transform-origin="center" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25"><g fill="none"><circle cx="10.5" cy="10.5" r="10.5" fill="%23FF6155"/><path stroke="%23FFF" stroke-width="2" d="M6 11.381 8.735 14 15 8"/></g></svg>');/* Use translate(X, Y) to position the SVG up, down, left, and right */
+}
+
+li::marker{
+	font-size: 1.5em;
+	line-height: 0.1em;
+}
+
+.row3 div {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.row3 div::before {
+  content: "✓";
+  color: #FF6257;
+  margin-right: 10px;
+}
+
+.row4 {
+  margin-top: 25px;
+  margin-bottom: 15px;
+}
+
+.row4 label {
+  display: block;
+  font-size: 10px;
+  font-weight: 800;
+  color: #242742;
+  margin-bottom: 5px;
+}
+
+.row4 input {
+  width: 90%;
+  padding: 15px;
+  border: 2px solid lightgray;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.row5 {
+  height:120px;
+
+}
+
+.row5 button {
+  margin-top: 20px;
+  width: 90%;
+  
+  padding: 15px;
+  background-color: #242742;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.row5 button:hover {
+  background-color: #FF6257;
+}
+
+/* Right Column Styles (Image) */
+.colm2-svg {
+  flex-direction: column;
+  justify-content:end;
+  max-width: 100%;
+  margin-right: 20px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border-radius: 0 20px 20px 0;
+}
+
+/* Attribution Styles */
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  color: white;
+}
+
+.attribution a {
+  color: #FF6257;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+      flex-direction: column-reverse;
+      width: 100%;
+      height: 100%;
+      border-radius: 0;
+  }
+
+  .grid-column1, .grid-column2 {
+      width: 100%;
+  }
+
+  .grid-column2 {
+      height: 30vh;
+  }
+}
