@@ -1,33 +1,47 @@
-const button  = document.querySelector('.btn');
-const container = document.querySelector('.container')
-const success = document.querySelector('.success-state')
-const emailError = document.querySelector('#email-error')
-const emailInput = document.querySelector('#email')
-const pictureContainer = document.querySelector('.picture-container')
-const formWrapper = document.querySelector('.form-wrapper')
-const main = document.querySelector('main')
-const yourmail = document.querySelector('.yourmail')
+const  containerE1 = document.getElementById("container")
+const  leftE1 = document.getElementById("left")
+const  rightE1 = document.getElementById("right")
+const  userEmailE1 = document.getElementById("user-email")
+const  vaildE1 = document.getElementById("vaild")
+const  emailInput = document.getElementById("email-input")
+const  submitbtnE1 = document.getElementById("submit-btn")
+const  confirmMessageE1 = document.getElementById("confirm-message")
+const  dissmissE1 = document.getElementById("dissmiss")
 
 
-form.addEventListener('submit', e =>{
-    e.preventDefault();
+function formSuccess() {
+    confirmMessageE1.classList.add('active')
+    containerE1.classList.add('success')
+    leftE1.style.display='none'
+    rightE1.style.display='none'
+}
 
-   const emailValue = emailInput.value.trim();
-   if(!isValidEmail(emailValue)){
-        emailError.textContent = 'Valid email required'
-        emailInput.classList.add('failure')
-}  
-    else{
-        formWrapper.classList.add('hidden')
-        pictureContainer.classList.add('hidden')
-        success.classList.remove('hidden')
-        main.classList.add('main-success')
-        yourmail.textContent = emailValue;
+function validateEmail(email){
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    return emailRegex.test(email)
+}
+
+submitbtnE1.addEventListener('click' , (e) => {
+    e.preventDefault()
+    const email = emailInput.value.trim()
+
+    if(validateEmail(email)) {
+        formSuccess()
+        userEmailE1.innerText = email
+        emailInput.value = ''
+
+        vaildE1.classList.remove('active')
+        emailInput.classList.remove('active')
+    } else {
+        vaildE1.classList.add('active')
+        emailInput.classList.add('active')
     }
 })
 
 
-const isValidEmail = email => {
-    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(String(email).toLowerCase());
-} 
+dissmissE1.addEventListener('click' , () => {
+    leftE1.style.display = 'block'
+    rightE1.style.display = 'block'
+    containerE1.classList.remove('success')
+    confirmMessageE1.classList.remove('active')
+})
